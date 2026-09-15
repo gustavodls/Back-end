@@ -277,6 +277,76 @@ echo "<br>Bem vindo $nome_user";
     }
 }
 
+//fim 18
+
+//começo 19
+
+if(isset($_POST["anoNasc"], $_POST["nomePessoa"]))
+    {
+        $anoAtual = 2026;
+        $anoNasc = $_POST["anoNasc"];
+        $idaded = $anoAtual - $anoNasc;
+        $nomePess = $_POST["nomePessoa"];
+
+        if($idaded >= 18)
+            {
+                $maioridade = "maior";
+            }
+        else
+            {
+                $maioridade = "menor";
+            }
+        echo "ola" . $nomePess . "voce tem" . $idaded . "dito isso, vc é de" . $maioridade . ".";
+    }
+
+//fim 19
+
+//começo 20
+
+$listad = [
+[
+    "nome" => "arroz",
+    "preço" =>10
+],
+
+[
+    "nome" => "feijão",
+    "preço" =>20
+],
+
+[
+    "nome" => "carne",
+    "preço" =>30
+],
+
+[
+    "nome" => "batata",
+    "preço" =>1
+],
+
+[
+    "nome" => "cenoura",
+    "preço" => 2
+]
+];
+
+foreach($listad as $produtoe) {
+    echo "<p>Produto" . $produtoe["nome"] . "custa R$" . $produtoe["preço"] . "</p>";
+}
+
+$totals = array_sum(array_column($listad,'preço'));
+echo "Total: R$" . $totals;
+
+echo "<br>";
+
+$maiorj = max(array_column($listad, 'preço'));
+echo "<br> Maior preço: R$" . $maiorj;
+
+echo "<br>";
+
+//fim 20
+
+
 // salvar arquivo no txt
 $arquivor = "arquivo.txt";
 
@@ -368,6 +438,7 @@ if (isset($_POST["nomer"]))
 
         ?>
     </div>
+     <!--pegar arquivo do txt e mostrar no site-->
 
 
 
