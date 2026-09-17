@@ -30,6 +30,7 @@ if (isset($_POST["nome"]))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -48,6 +49,33 @@ if (isset($_POST["nome"]))
         <input type="file" name="imagem">
 
     <button type="submit">enviar</button>
+
+    </form>
+
+    <form action="">
+
+    <?php
+
+    $arquivo = "produtos.txt";
+
+    if (file_exists($arquivo))
+        {
+            $produtos = file($arquivo);
+
+            foreach ($produtos as $produto)
+                {
+                    $dados = explode("|" ,$produto);
+                    echo "<div class='card'>
+                    <img src='$dados[2]'>
+                    <h2>$dados[0]</h2>
+                    <h3>$dados[1]</h3>
+                    </div>";
+                }
+        }
+
+
+    ?>
+
 
     </form>
     
